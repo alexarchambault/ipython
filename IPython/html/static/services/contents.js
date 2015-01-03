@@ -118,6 +118,7 @@ define([
             type : "POST",
             data: data,
             dataType : "json",
+            contentType: "application/json; charset=utf-8",
         };
         return utils.promising_ajax(this.api_url(path), settings);
     };

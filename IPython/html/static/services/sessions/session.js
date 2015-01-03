@@ -122,6 +122,7 @@ define([
             type: "POST",
             data: JSON.stringify(this._get_model()),
             dataType: "json",
+            contentType: "application/json; charset=utf-8",
             success: this._on_success(on_success),
             error: this._on_error(on_error)
         });
