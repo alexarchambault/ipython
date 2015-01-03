@@ -1713,8 +1713,12 @@ define([
      * @return {string} This notebook's name (excluding file extension)
      */
     Notebook.prototype.get_notebook_name = function () {
-        var nbname = this.notebook_name.substring(0,this.notebook_name.length-6);
-        return nbname;
+        var idx = this.notebook_name.lastIndexOf(".");
+        if (idx < 0) {
+          return this.notebook_name;
+        } else {
+          return this.notebook_name.substring(0, idx);
+        }
     };
 
     /**
@@ -2038,8 +2042,16 @@ define([
      * @return {Promise} promise that resolves when the notebook is renamed.
      */
     Notebook.prototype.rename = function (new_name) {
-        if (!new_name.match(/\.ipynb$/)) {
-            new_name = new_name + ".ipynb";
+        var ext = "";        
+        var idx = this.notebook_name.lastIndexOf(".");
+        if (idx < 0) {
+          ext = ".ipynb";
+        } else {
+          ext = this.notebook_name.substring(idx);
+        }
+    
+        if (!new_name.matches(new RegExp(ext.replace(".", "\\.") + "$"))) {
+            new_name = new_name + ext;
         }
 
         var that = this;
