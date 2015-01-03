@@ -16,6 +16,21 @@ from ..utils import url_escape
 
 class NotebookHandler(IPythonHandler):
 
+    sections = (
+        (
+            ("http://ipython.org/documentation.html", "IPython Help", True),
+            ("http://nbviewer.ipython.org/github/ipython/ipython/tree/2.x/examples/Index.ipynb", "Notebook Help", True),
+        ), (
+            ("http://docs.python.org", "Python", True),
+            ("http://help.github.com/articles/github-flavored-markdown", "Markdown", True),
+            ("http://docs.scipy.org/doc/numpy/reference/", "NumPy", True),
+            ("http://docs.scipy.org/doc/scipy/reference/", "SciPy", True),
+            ("http://matplotlib.org/contents.html", "Matplotlib", True),
+            ("http://docs.sympy.org/latest/index.html", "SymPy", True),
+            ("http://pandas.pydata.org/pandas-docs/stable/", "pandas", True)
+        )
+    )
+
     @web.authenticated
     def get(self, path):
         """get renders the notebook template if a name is given, or 
@@ -33,6 +48,7 @@ class NotebookHandler(IPythonHandler):
             notebook_name=name,
             kill_kernel=False,
             mathjax_url=self.mathjax_url,
+            sections=self.sections,
             )
         )
 

@@ -21,7 +21,7 @@
           {% if version_hash %}
           urlArgs: "v={{version_hash}}",
           {% endif %}
-          baseUrl: '{{static_url("", include_version=False)}}',
+          baseUrl: '{{static_url_no_version("")}}',
           paths: {
             nbextensions : '{{ base_url }}nbextensions',
             kernelspecs : '{{ base_url }}kernelspecs',

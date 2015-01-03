@@ -245,23 +245,6 @@ class="notebook_app"
                         <li id="notebook_tour" title="A quick tour of the notebook user interface"><a href="#">User Interface Tour</a></li>
                         <li id="keyboard_shortcuts" title="Opens a tooltip with all keyboard shortcuts"><a href="#">Keyboard Shortcuts</a></li>
                         <li class="divider"></li>
-                        {% set
-                            sections = (
-                                (
-                                    ("http://ipython.org/documentation.html","IPython Help",True),
-                                    ("http://nbviewer.ipython.org/github/ipython/ipython/tree/2.x/examples/Index.ipynb", "Notebook Help", True),
-                                ),(
-                                    ("http://docs.python.org","Python",True),
-                                    ("http://help.github.com/articles/github-flavored-markdown","Markdown",True),
-                                    ("http://docs.scipy.org/doc/numpy/reference/","NumPy",True),
-                                    ("http://docs.scipy.org/doc/scipy/reference/","SciPy",True),
-                                    ("http://matplotlib.org/contents.html","Matplotlib",True),
-                                    ("http://docs.sympy.org/latest/index.html","SymPy",True),
-                                    ("http://pandas.pydata.org/pandas-docs/stable/","pandas", True)
-                                )
-                            )
-                        %}
-
                         {% for helplinks in sections %}
                             {% for link in helplinks %}
                                 <li><a href="{{link[0]}}" {{'target="_blank" title="Opens in a new window"' if link[2]}}>

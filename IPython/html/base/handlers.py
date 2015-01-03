@@ -242,6 +242,7 @@ class IPythonHandler(AuthenticatedHandler):
             logged_in=self.logged_in,
             login_available=self.login_available,
             static_url=self.static_url,
+            static_url_no_version=lambda x: self.static_url(x, include_version=False),
             sys_info=sys_info,
             contents_js_source=self.contents_js_source,
             version_hash=self.version_hash,
