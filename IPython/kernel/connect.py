@@ -371,7 +371,7 @@ def tunnel_to_kernel(connection_info, sshserver, sshkey=None):
 
 channel_socket_types = {
     'hb' : zmq.REQ,
-    'shell' : zmq.DEALER,
+    'shell' : zmq.REQ,
     'iopub' : zmq.SUB,
     'stdin' : zmq.DEALER,
     'control': zmq.DEALER,
