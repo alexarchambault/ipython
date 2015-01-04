@@ -110,7 +110,7 @@ define([
         var that = this;
         kernel_name = kernel_name || this.default_kernel;
         var w = window.open();
-        this.contents.new_untitled(that.notebook_path, {type: "notebook"}).then(
+        this.contents.new_untitled(that.notebook_path, {type: "notebook", kernel_name: kernel_name}).then(
             function (data) {
                 var url = utils.url_join_encode(
                     that.base_url, 'notebooks', data.path

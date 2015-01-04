@@ -106,11 +106,13 @@ define([
      * @param {Object} options:
      *      ext: file extension to use
      *      type: model type to create ('notebook', 'file', or 'directory')
+     *      kernel_name: name of the kernel to use
      */
     Contents.prototype.new_untitled = function(path, options) {
         var data = JSON.stringify({
           ext: options.ext,
-          type: options.type
+          type: options.type,
+          kernel_name: options.kernel_name
         });
 
         var settings = {
