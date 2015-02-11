@@ -1704,8 +1704,12 @@ define(function (require) {
      * @return {string} This notebook's name (excluding file extension)
      */
     Notebook.prototype.get_notebook_name = function () {
-        var nbname = this.notebook_name.substring(0,this.notebook_name.length-6);
-        return nbname;
+        var idx = this.notebook_name.lastIndexOf(".");
+        if (idx < 0) {
+          return this.notebook_name;
+        } else {
+          return this.notebook_name.substring(0, idx);
+        }
     };
 
     /**

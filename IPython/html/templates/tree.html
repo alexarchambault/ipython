@@ -93,8 +93,8 @@ data-terminals-available="{{terminals_available}}"
               </div>
               <div id="project_name">
                 <ul class="breadcrumb">
-                  <li><a href="{{breadcrumbs[0][0]}}"><i class="fa fa-home"></i></a></li>
-                {% for crumb in breadcrumbs[1:] %}
+                  <li><a href="{{breadcrumbs_head[0]}}"><i class="fa fa-home"></i></a></li>
+                {% for crumb in breadcrumbs_tail %}
                   <li><a href="{{crumb[0]}}">{{crumb[1]}}</a></li>
                 {% endfor %}
                 </ul>
